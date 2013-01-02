@@ -3,6 +3,7 @@ game =
     if not gfx.init()
       alert "Could not set up game canvas!"
       return # abort
+
     #clear canvas
     gfx.clear()
 
@@ -78,14 +79,22 @@ game =
       level = makeLevel level1
       #console.log "level: #{ level }"
 
-      #draw the level
-      for row, y in level
-        for tile, x in row
-          continue if not tile #makeLebel returned null for unknown chars
-          xPos = x * gfx.tileW
-          yPos = y * gfx.tileH
-          gfx.drawSprite tile[0], tile[1], xPos, yPos
+      setInterval ->
+        #run game stuff
+        #draw the level
+        player.update()
+      
+        gfx.clear()
 
-
+        #draw the level
+        for row, y in level
+          for tile, x in row
+            continue if not tile #makeLebel returned null for unknown chars
+            xPos = x * gfx.tileW
+            yPos = y * gfx.tileH
+            gfx.drawSprite tile[0], tile[1], xPos, yPos
+      
+        player.render(gfx)
+      , 33
 
 game.init()
