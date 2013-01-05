@@ -11,5 +11,5 @@ Thumbs.db
 
 # vim swap files #
 ##################
-.swp
+*.swp
 
