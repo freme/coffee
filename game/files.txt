@@ -1,1 +1,7 @@
+src/gfx.coffee
+src/keys.coffee
+src/entities/_Entity.coffee
+src/entities/Ninja.coffee   
+src/entities/Player.coffee  
 src/game.coffee
+
